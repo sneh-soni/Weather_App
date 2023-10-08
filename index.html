@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex flex-col items-center p-3 bg-gradient-to-r from-cyan-700 to-blue-900">
+    <div class="flex items-center mt-4 gap-2 pointer-events-none">
+        <h1 class="font-semibold text-3xl sm:text-5xl h-14 pt-1 text-white">Weather </h1>
+        <img src="resources/weather-icon.svg" class="h-16 w-16" />
+    </div>
+
+    <p class="text-white text-[0.6rem] sm:text-sm m-0 pointer-events-none">developed by <span class="text-white text-xs sm:text-lg font-semibold">SNEH SONI</span></p>
+
+    <div class="w-full flex justify-center items-center gap-2 sm:gap-4">
+        <form class="relative w-full sm:w-1/2 my-10" search-form>
+            <div class="absolute inset-y-0 left-0 flex items-center pl-2">
+                <img src="resources/search-icon.svg" class="w-4" />
+            </div>
+            <input
+                class="placeholder:italic placeholder:text-slate-400 focus:outline-none bg-white w-full rounded-3xl py-2 pl-9 pr-3 shadow-lg"
+                placeholder="search city.." search-data type="text" name="search" />
+            <button class="absolute inset-y-0 right-3 flex items-center pl-2" type="submit">
+                <img src="resources/icon-right.svg" class="w-5" />
+            </button>
+        </form>
+        <button class="text-white rounded-md bg-sky-800 h-1/2 px-2 py-1 border border-white w-1/4 text-[0.675rem] sm:w-fit sm:text-lg" type="submit" id="your-weather">
+            Your Weather
+        </button>
+    </div>
+    <div class="grant-access-card">
+        <div class="flex justify-center sm:gap-4">
+            <img src="resources/location-icon.svg" class="w-1/6 sm:w-1/12" />
+            <div class="text-center flex flex-col items-center">
+                <p class="text-white text-lg sm:text-2xl font-semibold sm:h-1/3">Grant Location Access</p>
+                <p class="text-white text-xs sm:text-sm w-3/4">Please allow to get your weather information</p>
+            </div>
+        </div>
+        <div class="flex justify-center">
+            <button class="text-2xl font-semibold px-7 py-1 shadow-lg bg-white rounded-xl text-zinc-950 my-4"
+                access-button>Allow</button>
+        </div>
+    </div>
+
+    <div class="loadingscreen w-full flex  flex-col items-center pointer-events-none">
+        <img src="./resources/loading-icon.svg" class=" w-1/2 sm:w-1/5" />
+    </div>
+
+    <div class="weather-info-card w-full flex justify-center pointer-events-none">
+        <div class="w-3/4 sm:w-3/4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-700">
+            <div class="w-full flex justify-center items-center gap-4 my-4">
+                <p class="text-[1.675rem] sm:text-4xl font-semibold text-white" id="city-name"></p>
+                <img src="" class="w-8 h-8 sm:w-10 sm:h-10" id="city-flag" />
+            </div>
+            <div class="flex flex-col items-center my-0 sm:my-2 gap-4">
+                <p class="text-lg sm:text-2xl text-white font-semibold" id="weather-desc"></p>
+                <img src="" class="w-14" id="weather-icon" />
+                <p class="text-3xl sm:text-4xl text-white font-bold" id="temperature"></p>
+            </div>
+            <div class="flex flex-col items-center gap-2 sm:flex-row sm:justify-around w-full text-white text-xl my-4 sm:my-8">
+                <div class="w-full sm:w-1/4 flex flex-col items-center gap-2 bg-blue-400 p-4 shadow-2xl rounded-xl">
+                    <img src="./resources/windspeed-icon.svg" class="w-10">
+                    <p>Windspeed</p>
+                    <p class="text-2xl sm:text-3xl font-semibold" id="windspeed"></p>
+                </div>
+                <div class="w-full sm:w-1/4 flex flex-col items-center gap-2 bg-blue-400 p-4 shadow-2xl rounded-xl">
+                    <img src="./resources/humidity-icon.svg" class="w-10">
+                    <p>Humidity</p>
+                    <p class="text-2xl sm:text-3xl font-semibold" id="humidity"></p>
+                </div>
+                <div class="w-full sm:w-1/4 flex flex-col items-center gap-2 bg-blue-400 p-4 shadow-2xl rounded-xl">
+                    <img src="./resources/clouds-icon.svg" class="w-10">
+                    <p>Clouds</p>
+                    <p class="text-2xl sm:text-3xl font-semibold" id="clouds"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col gap-2 w-full items-center error-screen pointer-events-none">
+        <img src="./resources/error-icon.png" class="w-1/4 sm:w-1/12" />
+        <p class="text-white text-xl sm:text-3xl">City Not Found!</p>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
